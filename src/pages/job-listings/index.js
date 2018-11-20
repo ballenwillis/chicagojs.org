@@ -13,18 +13,14 @@ const container = {
 const JobListing = ({ neighborhood, position, datePosted, positionType, jobLink }) => (
   <div className="col-sm-12" style={container}>
     <div className="row">
-      <div align="left">
-        <a href={jobLink}>
-          <h6>{position}</h6>
-        </a>
-      </div>
-      <div align="right">
-        <h6>{neighborhood}</h6>
-      </div>
+      <a href={jobLink}>
+        <h6>{position}</h6>
+      </a>
+      <h6>{neighborhood}</h6>
     </div>
     <div className="row">
-      <h6>{positionType}</h6>
-      <h6>{datePosted}</h6>
+      <p>{positionType}</p>
+      <p>{datePosted}</p>
     </div>
   </div>
 )
