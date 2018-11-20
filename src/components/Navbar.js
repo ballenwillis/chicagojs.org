@@ -14,6 +14,10 @@ const navLinks = [
   {
     href: '/contact',
     label: 'Contact Us'
+  },
+  {
+    href: '/job-listings',
+    label: 'Jobs'
   }
 ]
 
