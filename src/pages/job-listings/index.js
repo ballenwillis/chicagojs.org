@@ -3,10 +3,22 @@ import { graphql } from 'gatsby'
 import get from 'lodash.get'
 import Layout from '../../components/Layout'
 
+const container = {
+  marginTop: '16px',
+  alignItems: 'center'
+}
+
 const jobListingContainer = {
+  alignSelf: 'center',
+  align: 'center',
   borderWidth: '5px',
   borderColor: 'red',
-  height: '80px'
+  height: '80px',
+  maxWidth: '700px'
+}
+
+const rightText = {
+  textAlign: 'right'
 }
 
 const JobListing = ({ neighborhood, position, datePosted, positionType, jobLink }) => (
@@ -19,8 +31,8 @@ const JobListing = ({ neighborhood, position, datePosted, positionType, jobLink 
         <p>{positionType}</p>
       </div>
       <div>
-        <h6>{neighborhood}</h6>
-        <p>{datePosted}</p>
+        <h6 style={rightText}>{neighborhood}</h6>
+        <p style={rightText}>{datePosted}</p>
       </div>
     </div>
   </div>
@@ -31,12 +43,10 @@ export default class JobListingsPage extends React.Component {
     const jobs = get(this.props, 'data.allJobListingsJson.edges', [])
     return (
       <Layout>
-        <div className="container">
-          <div className="row">
-            {jobs.map(j => (
-              <JobListing {...j.node} />
-            ))}
-          </div>
+        <div className="container" style={container}>
+          {jobs.map(j => (
+            <JobListing {...j.node} />
+          ))}
         </div>
       </Layout>
     )
